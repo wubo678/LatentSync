@@ -19,6 +19,10 @@ import tqdm
 from latentsync.utils.av_reader import AVReader
 from latentsync.utils.util import gather_video_paths_recursively
 
+from dotenv import load_dotenv
+import os
+load_dotenv()
+ROOT_PATH = os.getenv("ROOT_PATH")
 
 def remove_broken_video(video_path):
     try:
@@ -37,7 +41,8 @@ def remove_broken_videos_multiprocessing(input_dir, num_workers):
 
 
 if __name__ == "__main__":
-    input_dir = "/mnt/bn/maliva-gen-ai-v2/chunyu.li/multilingual/affine_transformed"
+    # input_dir = "/mnt/bn/maliva-gen-ai-v2/chunyu.li/multilingual/affine_transformed"
+    input_dir = f"{ROOT_PATH}/maliva-gen-ai-v2/chunyu.li/multilingual/affine_transformed"
     num_workers = 50
 
     remove_broken_videos_multiprocessing(input_dir, num_workers)

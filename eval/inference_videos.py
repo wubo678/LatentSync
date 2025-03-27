@@ -17,6 +17,10 @@ import subprocess
 from tqdm import tqdm
 import random
 
+from dotenv import load_dotenv
+import os
+load_dotenv()
+ROOT_PATH = os.getenv("ROOT_PATH")
 
 def inference_video_from_fileslist(
     video_fileslist: str,
@@ -58,9 +62,12 @@ def inference_video_from_fileslist(
 
 
 if __name__ == "__main__":
-    video_fileslist = "/mnt/bn/maliva-gen-ai-v2/chunyu.li/fileslist/video_fileslist.txt"
-    audio_fileslist = "/mnt/bn/maliva-gen-ai-v2/chunyu.li/fileslist/audio_fileslist.txt"
-    output_dir = "/mnt/bn/maliva-gen-ai-v2/chunyu.li/inference_videos_results"
+    # video_fileslist = "/mnt/bn/maliva-gen-ai-v2/chunyu.li/fileslist/video_fileslist.txt"
+    # audio_fileslist = "/mnt/bn/maliva-gen-ai-v2/chunyu.li/fileslist/audio_fileslist.txt"
+    # output_dir = "/mnt/bn/maliva-gen-ai-v2/chunyu.li/inference_videos_results"
+    video_fileslist = f"{ROOT_PATH}/maliva-gen-ai-v2/chunyu.li/fileslist/video_fileslist.txt"
+    audio_fileslist = f"{ROOT_PATH}/maliva-gen-ai-v2/chunyu.li/fileslist/audio_fileslist.txt"
+    output_dir = f"{ROOT_PATH}/maliva-gen-ai-v2/chunyu.li/inference_videos_results"
 
     unet_config_path = "configs/unet/stage2.yaml"
     ckpt_path = "checkpoints/latentsync_unet.pt"

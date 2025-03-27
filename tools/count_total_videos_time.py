@@ -1,6 +1,10 @@
 from latentsync.utils.util import count_video_time
 from tqdm import tqdm
 
+from dotenv import load_dotenv
+import os
+load_dotenv()
+ROOT_PATH = os.getenv("ROOT_PATH")
 
 def count_total_videos_time(fileslist_path: str):
     with open(fileslist_path, "r") as f:
@@ -18,5 +22,6 @@ def count_total_videos_time(fileslist_path: str):
 
 
 if __name__ == "__main__":
-    fileslist_path = "/mnt/bn/maliva-gen-ai-v2/chunyu.li/fileslist/data_v9_full.txt"
+    # fileslist_path = "/mnt/bn/maliva-gen-ai-v2/chunyu.li/fileslist/data_v9_full.txt"
+    fileslist_path = f"{ROOT_PATH}/maliva-gen-ai-v2/chunyu.li/fileslist/data_v9_full.txt"
     count_total_videos_time(fileslist_path)

@@ -17,6 +17,11 @@ import subprocess
 import tqdm
 from multiprocessing import Pool
 
+from dotenv import load_dotenv
+import os
+load_dotenv()
+ROOT_PATH = os.getenv("ROOT_PATH")
+
 paths = []
 
 
@@ -55,8 +60,10 @@ def segment_videos_multiprocessing(input_dir, output_dir, num_workers):
 
 
 if __name__ == "__main__":
-    input_dir = "/mnt/bn/maliva-gen-ai-v2/chunyu.li/avatars_new/cut"
-    output_dir = "/mnt/bn/maliva-gen-ai-v2/chunyu.li/avatars_new/segmented"
+    # input_dir = "/mnt/bn/maliva-gen-ai-v2/chunyu.li/avatars_new/cut"
+    # output_dir = "/mnt/bn/maliva-gen-ai-v2/chunyu.li/avatars_new/segmented"
+    input_dir = f"{ROOT_PATH}/maliva-gen-ai-v2/chunyu.li/avatars_new/cut"
+    output_dir = f"{ROOT_PATH}/maliva-gen-ai-v2/chunyu.li/avatars_new/segmented"
     num_workers = 50
 
     segment_videos_multiprocessing(input_dir, output_dir, num_workers)

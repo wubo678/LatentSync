@@ -26,15 +26,25 @@ class Predictor(BasePredictor):
             download_weights(MODEL_URL, MODEL_CACHE)
 
         # Soft links for the auxiliary models
-        os.system("mkdir -p ~/.cache/torch/hub/checkpoints")
+        # os.system("mkdir -p ~/.cache/torch/hub/checkpoints")
+        # os.system(
+        #     "ln -s $(pwd)/checkpoints/auxiliary/2DFAN4-cd938726ad.zip ~/.cache/torch/hub/checkpoints/2DFAN4-cd938726ad.zip"
+        # )
+        # os.system(
+        #     "ln -s $(pwd)/checkpoints/auxiliary/s3fd-619a316812.pth ~/.cache/torch/hub/checkpoints/s3fd-619a316812.pth"
+        # )
+        # os.system(
+        #     "ln -s $(pwd)/checkpoints/auxiliary/vgg16-397923af.pth ~/.cache/torch/hub/checkpoints/vgg16-397923af.pth"
+        # )
+        os.system("mkdir -p $HOME/.cache/torch/hub/checkpoints")
         os.system(
-            "ln -s $(pwd)/checkpoints/auxiliary/2DFAN4-cd938726ad.zip ~/.cache/torch/hub/checkpoints/2DFAN4-cd938726ad.zip"
+            "New-Item -ItemType SymbolicLink -Path  $HOME/.cache/torch/hub/checkpoints/2DFAN4-cd938726ad.zip -Target $PWD/checkpoints/auxiliary/2DFAN4-cd938726ad.zip"
         )
         os.system(
-            "ln -s $(pwd)/checkpoints/auxiliary/s3fd-619a316812.pth ~/.cache/torch/hub/checkpoints/s3fd-619a316812.pth"
+            "New-Item -ItemType SymbolicLink -Path  $HOME/.cache/torch/hub/checkpoints/s3fd-619a316812.pth -Target $PWD/checkpoints/auxiliary/s3fd-619a316812.pth"
         )
         os.system(
-            "ln -s $(pwd)/checkpoints/auxiliary/vgg16-397923af.pth ~/.cache/torch/hub/checkpoints/vgg16-397923af.pth"
+            "New-Item -ItemType SymbolicLink -Path  $HOME/.cache/torch/hub/checkpoints/vgg16-397923af.pth -Target $PWD/checkpoints/auxiliary/vgg16-397923af.pth"
         )
 
     def predict(
@@ -53,7 +63,7 @@ class Predictor(BasePredictor):
         audio_path = str(audio)
         config_path = "configs/unet/stage2.yaml"
         ckpt_path = "checkpoints/latentsync_unet.pt"
-        output_path = "/tmp/video_out.mp4"
+        output_path = "./tmp/video_out.mp4"
 
         # Run the following command:
         os.system(

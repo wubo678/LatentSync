@@ -22,6 +22,11 @@ import subprocess
 import shutil
 from multiprocessing import Process
 
+from dotenv import load_dotenv
+import os
+load_dotenv()
+ROOT_PATH = os.getenv("ROOT_PATH")
+
 paths = []
 
 
@@ -105,8 +110,10 @@ def sync_av_multi_gpus(input_dir, output_dir, temp_dir, num_workers, sync_conf_t
 
 
 if __name__ == "__main__":
-    input_dir = "/mnt/bn/maliva-gen-ai-v2/chunyu.li/ads/affine_transformed"
-    output_dir = "/mnt/bn/maliva-gen-ai-v2/chunyu.li/VoxCeleb2/temp"
+    # input_dir = "/mnt/bn/maliva-gen-ai-v2/chunyu.li/ads/affine_transformed"
+    # output_dir = "/mnt/bn/maliva-gen-ai-v2/chunyu.li/VoxCeleb2/temp"
+    input_dir = f"{ROOT_PATH}/maliva-gen-ai-v2/chunyu.li/ads/affine_transformed"
+    output_dir = f"{ROOT_PATH}/maliva-gen-ai-v2/chunyu.li/VoxCeleb2/temp"
     temp_dir = "temp"
     num_workers = 20  # How many processes per device
     sync_conf_threshold = 3

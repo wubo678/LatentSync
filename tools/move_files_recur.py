@@ -16,6 +16,11 @@ import os
 import shutil
 from tqdm import tqdm
 
+from dotenv import load_dotenv
+import os
+load_dotenv()
+ROOT_PATH = os.getenv("ROOT_PATH")
+
 paths = []
 
 
@@ -43,7 +48,9 @@ def main(input_dir, output_dir):
 
 if __name__ == "__main__":
     # from input_dir to output_dir
-    input_dir = "/mnt/bn/maliva-gen-ai-v2/chunyu.li/willdata2"
-    output_dir = "/mnt/bn/maliva-gen-ai-v2/chunyu.li/willdata"
+    # input_dir = "/mnt/bn/maliva-gen-ai-v2/chunyu.li/willdata2"
+    # output_dir = "/mnt/bn/maliva-gen-ai-v2/chunyu.li/willdata"
+    input_dir = f"{ROOT_PATH}/maliva-gen-ai-v2/chunyu.li/willdata2"
+    output_dir = f"{ROOT_PATH}/maliva-gen-ai-v2/chunyu.li/willdata"
 
     main(input_dir, output_dir)

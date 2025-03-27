@@ -15,6 +15,10 @@
 import os
 import subprocess
 
+from dotenv import load_dotenv
+import os
+load_dotenv()
+ROOT_PATH = os.getenv("ROOT_PATH")
 
 def remove_outdated_files(input_dir, begin_date, end_date):
     # Remove files from a specific time period
@@ -27,7 +31,8 @@ def remove_outdated_files(input_dir, begin_date, end_date):
 
 
 if __name__ == "__main__":
-    input_dir = "/mnt/bn/video-datasets/output/unet"
+    # input_dir = "/mnt/bn/video-datasets/output/unet"
+    input_dir = f"{ROOT_PATH}/video-datasets/output/unet"
     begin_date = "train-2024_05_29-12:22:35"
     end_date = "train-2024_09_26-00:10:46"
 

@@ -17,6 +17,11 @@ import subprocess
 from concurrent.futures import ThreadPoolExecutor
 from tqdm import tqdm
 
+from dotenv import load_dotenv
+import os
+load_dotenv()
+ROOT_PATH = os.getenv("ROOT_PATH")
+
 """
 To use this python script, first install yt-dlp by:
 
@@ -96,7 +101,8 @@ def main(urls_txt_path, output_dir, num_workers):
 
 if __name__ == "__main__":
     urls_txt_path = "video_urls.txt"
-    output_dir = "/mnt/bn/maliva-gen-ai-v2/chunyu.li/youtube/raw"
+    # output_dir = "/mnt/bn/maliva-gen-ai-v2/chunyu.li/youtube/raw"
+    output_dir = f"{ROOT_PATH}/maliva-gen-ai-v2/chunyu.li/youtube/raw"
     num_workers = 50
 
     maximum_duration = 60 * 30  # set video maximum duration as 30 minutes

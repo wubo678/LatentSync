@@ -20,6 +20,10 @@ import cv2
 
 paths = []
 
+from dotenv import load_dotenv
+import os
+load_dotenv()
+ROOT_PATH = os.getenv("ROOT_PATH")
 
 def gather_paths(input_dir, output_dir):
     for video in sorted(os.listdir(input_dir)):
@@ -63,8 +67,10 @@ def resample_fps_hz_multiprocessing(input_dir, output_dir, num_workers):
 
 
 if __name__ == "__main__":
-    input_dir = "/mnt/bn/maliva-gen-ai-v2/chunyu.li/HDTF/segmented/train"
-    output_dir = "/mnt/bn/maliva-gen-ai-v2/chunyu.li/HDTF/resampled_test"
+    # input_dir = "/mnt/bn/maliva-gen-ai-v2/chunyu.li/HDTF/segmented/train"
+    # output_dir = "/mnt/bn/maliva-gen-ai-v2/chunyu.li/HDTF/resampled_test"
+    input_dir = f"{ROOT_PATH}/maliva-gen-ai-v2/chunyu.li/HDTF/segmented/train"
+    output_dir = f"{ROOT_PATH}/maliva-gen-ai-v2/chunyu.li/HDTF/resampled_test"
     num_workers = 20
 
     resample_fps_hz_multiprocessing(input_dir, output_dir, num_workers)

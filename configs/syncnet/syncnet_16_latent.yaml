@@ -26,10 +26,10 @@ data:
   num_frames: 16
   resolution: 256
   train_fileslist: ""
-  train_data_dir: /mnt/bn/maliva-gen-ai-v2/chunyu.li/VoxCeleb2/high_visual_quality/train
+  train_data_dir: D:/tmp/test/ai/latentsync/maliva-gen-ai-v2/chunyu.li/VoxCeleb2/high_visual_quality/train
   val_fileslist: ""
-  val_data_dir: /mnt/bn/maliva-gen-ai-v2/chunyu.li/VoxCeleb2/high_visual_quality/val
-  audio_cache_dir: /mnt/bn/maliva-gen-ai-v2/chunyu.li/audio_cache/mel_new
+  val_data_dir: D:/tmp/test/ai/latentsync/maliva-gen-ai-v2/chunyu.li/VoxCeleb2/high_visual_quality/val
+  audio_cache_dir: D:/tmp/test/ai/latentsync/maliva-gen-ai-v2/chunyu.li/audio_cache/mel_new
   lower_half: false
   pretrained_audio_model_path: facebook/wav2vec2-large-xlsr-53
   audio_sample_rate: 16000

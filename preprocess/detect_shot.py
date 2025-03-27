@@ -17,6 +17,11 @@ import subprocess
 import tqdm
 from multiprocessing import Pool
 
+from dotenv import load_dotenv
+import os
+load_dotenv()
+ROOT_PATH = os.getenv("ROOT_PATH")
+
 paths = []
 
 
@@ -55,8 +60,10 @@ def detect_shot_multiprocessing(input_dir, output_dir, num_workers):
 
 
 if __name__ == "__main__":
-    input_dir = "/mnt/bn/maliva-gen-ai-v2/chunyu.li/ads/high-resolution"
-    output_dir = "/mnt/bn/maliva-gen-ai-v2/chunyu.li/ads/shot"
+    # input_dir = "/mnt/bn/maliva-gen-ai-v2/chunyu.li/ads/high-resolution"
+    # output_dir = "/mnt/bn/maliva-gen-ai-v2/chunyu.li/ads/shot"
+    input_dir = f"{ROOT_PATH}/maliva-gen-ai-v2/chunyu.li/ads/high-resolution"
+    output_dir = f"{ROOT_PATH}/maliva-gen-ai-v2/chunyu.li/ads/shot"
     num_workers = 50
 
     detect_shot_multiprocessing(input_dir, output_dir, num_workers)

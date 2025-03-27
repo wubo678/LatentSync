@@ -18,6 +18,10 @@ import os
 import tqdm
 from multiprocessing import Pool
 
+from dotenv import load_dotenv
+import os
+load_dotenv()
+ROOT_PATH = os.getenv("ROOT_PATH")
 
 class FaceDetector:
     def __init__(self):
@@ -75,7 +79,8 @@ def remove_incorrect_affined_multiprocessing(input_dir, num_workers):
 
 
 if __name__ == "__main__":
-    input_dir = "/mnt/bn/maliva-gen-ai-v2/chunyu.li/multilingual_dcc/high_visual_quality"
+    # input_dir = "/mnt/bn/maliva-gen-ai-v2/chunyu.li/multilingual_dcc/high_visual_quality"
+    input_dir = f"{ROOT_PATH}/maliva-gen-ai-v2/chunyu.li/multilingual_dcc/high_visual_quality"
     num_workers = 50
 
     remove_incorrect_affined_multiprocessing(input_dir, num_workers)

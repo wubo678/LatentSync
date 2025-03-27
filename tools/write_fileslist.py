@@ -15,6 +15,10 @@
 from tqdm import tqdm
 from latentsync.utils.util import gather_video_paths_recursively
 
+from dotenv import load_dotenv
+import os
+load_dotenv()
+ROOT_PATH = os.getenv("ROOT_PATH")
 
 class FileslistWriter:
     def __init__(self, fileslist_path: str):
@@ -31,8 +35,11 @@ class FileslistWriter:
 
 
 if __name__ == "__main__":
-    fileslist_path = "/mnt/bn/maliva-gen-ai-v2/chunyu.li/fileslist/data_v9_syncnet.txt"
+    # fileslist_path = "/mnt/bn/maliva-gen-ai-v2/chunyu.li/fileslist/data_v9_syncnet.txt"
+    fileslist_path = f"{ROOT_PATH}/maliva-gen-ai-v2/chunyu.li/fileslist/data_v9_syncnet.txt"
 
     writer = FileslistWriter(fileslist_path)
-    writer.append_dataset("/mnt/bn/maliva-gen-ai-v2/chunyu.li/VoxCeleb2/high_visual_quality/train")
-    writer.append_dataset("/mnt/bn/maliva-gen-ai-v2/chunyu.li/HDTF/high_visual_quality/train")
+    # writer.append_dataset("/mnt/bn/maliva-gen-ai-v2/chunyu.li/VoxCeleb2/high_visual_quality/train")
+    # writer.append_dataset("/mnt/bn/maliva-gen-ai-v2/chunyu.li/HDTF/high_visual_quality/train")
+    writer.append_dataset(f"{ROOT_PATH}/maliva-gen-ai-v2/chunyu.li/VoxCeleb2/high_visual_quality/train")
+    writer.append_dataset(f"{ROOT_PATH}/maliva-gen-ai-v2/chunyu.li/HDTF/high_visual_quality/train")

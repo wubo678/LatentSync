@@ -22,6 +22,11 @@ import subprocess
 from multiprocessing import Process
 import shutil
 
+from dotenv import load_dotenv
+import os
+load_dotenv()
+ROOT_PATH = os.getenv("ROOT_PATH")
+
 paths = []
 
 
@@ -128,8 +133,10 @@ def affine_transform_multi_gpus(input_dir, output_dir, temp_dir, resolution, num
 
 
 if __name__ == "__main__":
-    input_dir = "/mnt/bn/maliva-gen-ai-v2/chunyu.li/willdata2/segmented"
-    output_dir = "/mnt/bn/maliva-gen-ai-v2/chunyu.li/willdata2/affine_transformed"
+    # input_dir = "/mnt/bn/maliva-gen-ai-v2/chunyu.li/willdata2/segmented"
+    # output_dir = "/mnt/bn/maliva-gen-ai-v2/chunyu.li/willdata2/affine_transformed"
+    input_dir = f"{ROOT_PATH}/maliva-gen-ai-v2/chunyu.li/willdata2/segmented"
+    output_dir = f"{ROOT_PATH}/maliva-gen-ai-v2/chunyu.li/willdata2/affine_transformed"
     temp_dir = "temp"
     resolution = 256
     num_workers = 10  # How many processes per device

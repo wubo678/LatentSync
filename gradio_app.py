@@ -8,7 +8,6 @@ from datetime import datetime
 CONFIG_PATH = Path("configs/unet/stage2.yaml")
 CHECKPOINT_PATH = Path("checkpoints/latentsync_unet.pt")
 
-
 def process_video(
     video_path,
     audio_path,

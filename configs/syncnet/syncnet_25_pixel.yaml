@@ -23,13 +23,13 @@ data:
   latent_space: false
   num_frames: 25
   resolution: 256
-  train_fileslist: /mnt/bn/maliva-gen-ai-v2/chunyu.li/fileslist/hdtf_vox_avatars_ads_affine.txt
-  # /mnt/bn/maliva-gen-ai-v2/chunyu.li/fileslist/hdtf_voxceleb_avatars_affine.txt
+  train_fileslist: D:/tmp/test/ai/latentsync/maliva-gen-ai-v2/chunyu.li/fileslist/hdtf_vox_avatars_ads_affine.txt
+  # D:/tmp/test/ai/latentsync/maliva-gen-ai-v2/chunyu.li/fileslist/hdtf_voxceleb_avatars_affine.txt
   train_data_dir: ""
-  val_fileslist: /mnt/bn/maliva-gen-ai-v2/chunyu.li/fileslist/vox_affine_val.txt
-  # /mnt/bn/maliva-gen-ai-v2/chunyu.li/fileslist/voxceleb_val.txt
+  val_fileslist: D:/tmp/test/ai/latentsync/maliva-gen-ai-v2/chunyu.li/fileslist/vox_affine_val.txt
+  # D:/tmp/test/ai/latentsync/maliva-gen-ai-v2/chunyu.li/fileslist/voxceleb_val.txt
   val_data_dir: ""
-  audio_cache_dir: /mnt/bn/maliva-gen-ai-v2/chunyu.li/audio_cache/mel
+  audio_cache_dir: D:/tmp/test/ai/latentsync/maliva-gen-ai-v2/chunyu.li/audio_cache/mel
   lower_half: true
   pretrained_audio_model_path: facebook/wav2vec2-large-xlsr-53
   audio_sample_rate: 16000

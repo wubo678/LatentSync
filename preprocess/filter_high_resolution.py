@@ -19,6 +19,11 @@ import tqdm
 import shutil
 from multiprocessing import Pool
 
+from dotenv import load_dotenv
+import os
+load_dotenv()
+ROOT_PATH = os.getenv("ROOT_PATH")
+
 paths = []
 
 
@@ -104,8 +109,10 @@ def filter_high_resolution_multiprocessing(input_dir, output_dir, resolution, nu
 
 
 if __name__ == "__main__":
-    input_dir = "/mnt/bn/maliva-gen-ai/lichunyu/HDTF/original/train"
-    output_dir = "/mnt/bn/maliva-gen-ai/lichunyu/HDTF/detected/train"
+    # input_dir = "/mnt/bn/maliva-gen-ai/lichunyu/HDTF/original/train"
+    # output_dir = "/mnt/bn/maliva-gen-ai/lichunyu/HDTF/detected/train"
+    input_dir = f"{ROOT_PATH}/maliva-gen-ai/lichunyu/HDTF/original/train"
+    output_dir = f"{ROOT_PATH}/maliva-gen-ai/lichunyu/HDTF/detected/train"
     resolution = 256
     num_workers = 50
 

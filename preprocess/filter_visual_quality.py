@@ -23,6 +23,10 @@ from decord import VideoReader
 from einops import rearrange
 from eval.hyper_iqa import HyperNet, TargetNet
 
+from dotenv import load_dotenv
+import os
+load_dotenv()
+ROOT_PATH = os.getenv("ROOT_PATH")
 
 paths = []
 
@@ -122,8 +126,10 @@ def filter_visual_quality_multi_gpus(input_dir, output_dir, num_workers):
 
 
 if __name__ == "__main__":
-    input_dir = "/mnt/bn/maliva-gen-ai-v2/chunyu.li/VoxCeleb2/av_synced_high"
-    output_dir = "/mnt/bn/maliva-gen-ai-v2/chunyu.li/VoxCeleb2/high_visual_quality"
+    # input_dir = "/mnt/bn/maliva-gen-ai-v2/chunyu.li/VoxCeleb2/av_synced_high"
+    # output_dir = "/mnt/bn/maliva-gen-ai-v2/chunyu.li/VoxCeleb2/high_visual_quality"
+    input_dir = f"{ROOT_PATH}/maliva-gen-ai-v2/chunyu.li/VoxCeleb2/av_synced_high"
+    output_dir = f"{ROOT_PATH}/maliva-gen-ai-v2/chunyu.li/VoxCeleb2/high_visual_quality"
     num_workers = 20  # How many processes per device
 
     filter_visual_quality_multi_gpus(input_dir, output_dir, num_workers)
